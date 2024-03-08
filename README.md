@@ -1,14 +1,35 @@
-# Open Telemetry Collector on Railway
+# Open Telemetry Collector Stack
 
-One-click Railway Template to deploy an [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) along with Zipkin, Jaeger, and Prometheus.
+Deploy this [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/) to Railway along with Zipkin, Jaeger, and Prometheus backends, with the click of a button!
 
-[![Deploy on Railway](https://railway.app/button.svg)]()
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/7KNDff)
+
+# About this Repo
 
 This repository contains the Dockerfile and config yaml for the [Open Telemetry Collector](https://github.com/open-telemetry/opentelemetry-collector/tree/main), ready to deploy to Railway.
 
-Port 4318 is mapped from the public network, so that you can send Traces/Metrics over HTTP frm the public network (ie.. client side apps) directly to the public domain on Railway.
+It also contains an [example node app](https://github.com/railwayapp-templates/opentelemetry-collector-stack/tree/main/exampleApp) that is instrumented with [Otel's node SDK](https://opentelemetry.io/docs/languages/js/getting-started/nodejs/).
 
-If you are sending data to it from a server side app, you can use the private network to the appropriate port.  This is the port map:
+For information on how to deploy the the collector and app, check out [the tutorial in Railway](https://docs.railway.app/tutorials/deploy-an-otel-collector-stack).
+
+## Technical Details
+
+When you deploy this collector and stack from the Railway template by clicking the button above, each of the following services will be deployed.
+
+### OpenTelemetry Collector
+
+The collector is a vendor-agnostic way to receive, process and export telemetry data.  
+
+It is deployed with a [configuration file](https://github.com/railwayapp-templates/opentelemetry-collector-stack/blob/main/otel-collector-config.yaml) that enables it to send data to the complementary backend services.
+
+The zpages extension is enabled, allowing you to connect to the debug UI from your browser.  More information on the extension can be found [here](https://github.com/open-telemetry/opentelemetry-collector/blob/main/extension/zpagesextension/README.md).
+
+#### Documentation
+
+- [Collector Documentation](https://opentelemetry.io/docs/)
+- [Configuration File Documentation](https://opentelemetry.io/docs/collector/configuration/)
+
+Port map for reference:
 
     - "1888"   # pprof extension
     - "8888"   # Prometheus metrics exposed by the collector
@@ -18,15 +39,17 @@ If you are sending data to it from a server side app, you can use the private ne
     - "4318"   # OTLP HTTP receiver
     - "55679" # zpages extension
 
+### Zipkin
 
-## accepting data from services outside the Railway private network
+Zipkin is a distributed tracing system.  It receives data from the Otel Collector on port 9411.
+- [Zipkin Documentation](https://zipkin.io/)
 
-If you need to send data to it from the public network, you must keep the PORT env var configured in the service settings to 4318.  If you require access to the zpages extension over PORT 55679, you can update the PORT setting to this value, but you will no longer be able to receive data from over the public network.
+### Jaeger
 
+Jaeger is a distributed tracing system.  It receives data from the Otel Collector on port 4317.
+- [Jaeger Documentation](https://www.jaegertracing.io/docs/1.55/)
 
-## zpages extension
+### Prometheus
 
-The zpages extension enables an HTTP endpoint that provides live data for debugging different components. -> https://github.com/open-telemetry/opentelemetry-collector/blob/main/extension/zpagesextension/README.md
-
-The zpages extension is enabled, but inaccessible with the default setup since the public port is mapped to 4318 in order to enable the collector to receive metrics from a service outside of the Railway private network.
-
+Prometheus is a systems monitoring and alerting toolkit.  It receives data from the Otel Collector on port 8889.
+- [Prometheus Documentation](https://prometheus.io/docs/introduction/overview/)
