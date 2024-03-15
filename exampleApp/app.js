@@ -5,8 +5,6 @@ const { rollTheDice } = require('./dice.js');
 const PORT = parseInt(process.env.PORT || '8080');
 const app = express();
 
-app.use(express.static('public'));
-
 app.get('/rolldice', (req, res) => {
   const rolls = req.query.rolls ? parseInt(req.query.rolls.toString()) : NaN;
   if (isNaN(rolls)) {
@@ -17,6 +15,8 @@ app.get('/rolldice', (req, res) => {
   }
   res.send(JSON.stringify(rollTheDice(rolls, 1, 6)));
 });
+
+app.use(express.static('public'));
 
 app.listen(PORT, () => {
   console.log(`Listening for requests on http://localhost:${PORT}`);
