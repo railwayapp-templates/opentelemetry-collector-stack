@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway OpenTelemetry Demo App</title>
+</head>
+
+<body>
+    <h1>Railway OpenTelemetry Demo App</h1>
+        <p>Welcome to the <a href="https://opentelemetry.io/docs/what-is-opentelemetry/" target="_blank">OpenTelemetry</a> demo app running in <a href="https://railway.app/" target="_blank">Railway</a></p>
+    <h3>About this demo</h3>
+        <p>This application complements the <a href="https://railway.app/template/7KNDff" target="_blank">OpenTelemetry Collector + Backend Template</a> found in the Railway template marketplace.</p>
+        <p>If you'd like more information on how to implement OpenTelemetry in your applications in Railway, check out the <a href="https://docs.railway.app/tutorials/deploy-an-otel-collector-stack" target="_blank">OpenTelemetry Tutorial</a> in Railway's documentation.</p>
+    <h3>How to interact with this app</h3>
+        <p>1. Generate some traffic to the instrumented route (update the number of rolls for more fun): <a href="https://classy-writing-production.up.railway.app/rolldice?rolls=10" target="_blank">/rolldice?rolls=10</a></p>
+        <p>2. Check out the telemetry data you just generated in the backend services:</p>
+        <ul>
+            <li><a href="https://jaeger-production-7589.up.railway.app/search?limit=20&lookback=1h&service=dice-server" target="_blank">Jaeger</a></li>
+            <li><a href="https://zipkin-production.up.railway.app/zipkin/?lookback=15m&endTs=1710534357988&limit=10" target="_blank">Zipkin</a></li>
+        </ul>
+    <h3>Questions?</h3>
+        <p>If you have any questions, don't hesitate to reach out in the <a href="https://help.railway.app/feedback/docs-deploy-an-otel-collector-c8a9bf18" target="_blank">Railway Help Station</a>.</p>
+    <h3>Enjoy!</h3>
+</body>
+
+</html>

@@ -5,6 +5,8 @@ const { rollTheDice } = require('./dice.js');
 const PORT = parseInt(process.env.PORT || '8080');
 const app = express();
 
+app.use(express.static('public'));
+
 app.get('/rolldice', (req, res) => {
   const rolls = req.query.rolls ? parseInt(req.query.rolls.toString()) : NaN;
   if (isNaN(rolls)) {
