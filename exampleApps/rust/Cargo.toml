@@ -1,0 +1,15 @@
+[package]
+name = "dice_server"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+hyper = { version = "0.14", features = ["full"] }
+tokio = { version = "1.29", features = ["full"] }
+rand = { version = "0.8" }
+opentelemetry = { version = "0.21.0", features = ["trace"] }
+opentelemetry_sdk = { version = "0.21.2", features = ["rt-tokio"] }
+opentelemetry-stdout = { version = "0.1.0", features = ["trace"] }
+opentelemetry-otlp = { version = "*", features = ["http-proto", "reqwest-client", "logs", "reqwest-rustls"] }
+
