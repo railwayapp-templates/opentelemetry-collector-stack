@@ -53,3 +53,10 @@ Jaeger is a distributed tracing system.  It receives data from the Otel Collecto
 
 Prometheus is a systems monitoring and alerting toolkit.  It receives data from the Otel Collector on port 8889.
 - [Prometheus Documentation](https://prometheus.io/docs/introduction/overview/)
+
+## Example Apps
+We will continue to add examples as we engage with our users and work through various implementations.  
+
+If you have an example, we would LOVE to include it.  PRs welcome!!
+- [node](/exampleApps/node)
+- [rust](/exampleApps/rust)
