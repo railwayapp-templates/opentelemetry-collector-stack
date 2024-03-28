@@ -1,5 +1,3 @@
-// https://opentelemetry.io/docs/languages/js/getting-started/nodejs/
-// https://opentelemetry.io/docs/languages/js/instrumentation
 const { NodeSDK } = require('@opentelemetry/sdk-node');
 const { getNodeAutoInstrumentations } = require('@opentelemetry/auto-instrumentations-node');
 const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-proto');

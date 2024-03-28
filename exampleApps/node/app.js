@@ -1,4 +1,3 @@
-// https://opentelemetry.io/docs/languages/js/getting-started/nodejs/
 const express = require('express');
 const { rollTheDice } = require('./dice.js');
 
