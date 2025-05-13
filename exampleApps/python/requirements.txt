@@ -1,0 +1,5 @@
+bottle>=0.13.3
+opentelemetry-api>=1.30.0
+opentelemetry-sdk>=1.30.0
+opentelemetry-exporter-otlp>=1.30.0
+opentelemetry-instrumentation-logging>=0.51b0

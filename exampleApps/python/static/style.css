@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #4caf50;
+}
+
+code {
+  background-color: #eee;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Fira Mono", "Consolas", monospace;
+  font-size: 1em;
+}

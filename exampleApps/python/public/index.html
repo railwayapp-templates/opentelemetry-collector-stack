@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dice Roll API</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎲 Dice Roll API</h1>
+      <p>Welcome to the Dice Roll API server.</p>
+      <h2>Usage</h2>
+      <p>
+        Make a GET request to the <code>/rolldice</code> endpoint with this
+        query parameter:
+      </p>
+      <ul>
+        <li><code>rolls</code>: Number of dice to roll (1–100)</li>
+      </ul>
+      <h3>Example:</h3>
+      <code>/rolldice?rolls=3</code>
+      <p>Returns a JSON object with roll results (each die has 6 sides).</p>
+    </div>
+  </body>
+</html>
